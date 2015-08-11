@@ -1,0 +1,236 @@
+graphConfiguration:
+    location: /var/scigraph-services/graph
+    neo4jConfig:
+      dump_configuration : true
+      dbms.pagecache.memory : 2G
+
+    indexedNodeProperties:
+      - label
+    exactNodeProperties:
+      - label
+      
+    curies:
+      # base
+      '': 'http://www.monarchinitiative.org/'
+      'MONARCH': 'http://www.monarchinitiative.org/MONARCH_'
+      'MonarchData': 'http://data.monarchinitiative.org/ttl/'
+      'MonarchArchive': 'http://archive.monarchinitiative.org/ttl/'
+      'dc': 'http://purl.org/dc/elements/1.1/'
+      'foaf': 'http://xmlns.com/foaf/0.1/'
+
+      # ontologies
+      'BFO': 'http://purl.obolibrary.org/obo/BFO_'
+      'CHEBI' : 'http://purl.obolibrary.org/obo/CHEBI_'
+      'CHR' : 'http://purl.obolibrary.org/obo/CHR_'
+      'CL' : 'http://purl.obolibrary.org/obo/CL_'
+      'CLO' : 'http://purl.obolibrary.org/obo/CLO_'
+      'CMO' : 'http://purl.obolibrary.org/obo/CMO_'
+      'DATA' : 'http://edamontology.org/data_'
+      'DC' : 'http://purl.obolibrary.org/obo/DC_'
+      'DECIPHER' : 'http://purl.obolibrary.org/obo/DECIPHER_'
+      'DOID': 'http://purl.obolibrary.org/obo/DOID_'
+      'ECO': 'http://purl.obolibrary.org/obo/ECO_'
+      'EFO' : 'http://www.ebi.ac.uk/efo/EFO_'
+      'ERO' : 'http://purl.obolibrary.org/obo/ERO_'
+      'faldo' : 'http://biohackathon.org/resource/faldo#'
+      'GENO': 'http://purl.obolibrary.org/obo/GENO_'
+      'GO' : 'http://purl.obolibrary.org/obo/GO_'
+      'HP': 'http://purl.obolibrary.org/obo/HP_'
+      'IAO': 'http://purl.obolibrary.org/obo/IAO_'
+      'MA': 'http://purl.obolibrary.org/obo/MA_'
+      'MESH': 'http://purl.obolibrary.org/obo/MESH_'
+      'MP': 'http://purl.obolibrary.org/obo/MP_'
+      'NCBITaxon' : 'http://purl.obolibrary.org/obo/NCBITaxon_'
+      'OBO': 'http://purl.obolibrary.org/obo/'
+      'OIO': 'http://www.geneontology.org/formats/oboInOwl#'
+      'OMIM' : 'http://purl.obolibrary.org/obo/OMIM_'
+      'Orphanet' : 'http://www.orpha.net/ORDO/Orphanet_'
+      'PATO': 'http://purl.obolibrary.org/obo/PATO_'
+      'PCO': 'http://purl.obolibrary.org/obo/PCO_'
+      'PR': 'http://purl.obolibrary.org/obo/PR_'
+      'PT' : 'http://www.animalgenome.org/cgi-bin/amido/term-details.cgi?term=PT:' #FIXME: Other source/link available?
+      'PW' : 'http://purl.obolibrary.org/obo/PW_'
+      'RO': 'http://purl.obolibrary.org/obo/RO_'
+      'SIO' : 'http://semanticscience.org/resource/SIO_'
+      'SNOMED' : 'http://purl.obolibrary.org/obo/SNOMED_'
+      'SO' : 'http://purl.obolibrary.org/obo/SO_'
+      'UBERON' : 'http://purl.obolibrary.org/obo/UBERON_'
+      'UMLS' : 'http://purl.obolibrary.org/obo/UMLS_'
+      'UO' : 'http://purl.obolibrary.org/obo/UO_'
+      'VT' : 'http://purl.obolibrary.org/obo/VT_'
+      'XCO' : 'http://purl.obolibrary.org/obo/XCO_'
+      'ZFA': 'http://purl.obolibrary.org/obo/ZFA_'
+      'ZFS': 'http://purl.obolibrary.org/obo/ZFS_'
+      'ZP': 'http://purl.obolibrary.org/obo/ZP_'
+      'OBAN': 'http://purl.org/oban/'
+
+
+      # publication/reference sources
+      'DOI' : 'http://dx.doi.org/'
+      'ISBN': 'http://www.monarchinitiative.org/ISBN_'
+      'ISBN-10': 'http://www.monarchinitiative.org/ISBN10_'
+      'ISBN-13': 'http://www.monarchinitiative.org/ISBN13_'
+      'ISBN-15': 'http://www.monarchinitiative.org/ISBN15_'
+      'J' : 'http://www.informatics.jax.org/reference/J:'
+      'PMID': 'http://www.ncbi.nlm.nih.gov/pubmed/'
+      'PMCID' : 'http://www.ncbi.nlm.nih.gov/pmc/'
+      'AQTLPub' : 'http://www.animalgenome.org/cgi-bin/QTLdb/BT/qabstract?PUBMED_ID='
+
+      # other
+      'Annotation': 'http://www.w3.org/ns/oa#Annotation'
+      'AQTL' : 'http://identifiers.org/animalqtl/'  # FIXME temporary
+      'AQTLTrait': 'http://identifiers.org/animalqtltrait/'  # temporary
+      'CCDS' : 'http://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi?REQUEST=CCDS&DATA='
+      'CGD' : 'http://ohsu.edu/cgd/'
+      'ClinVar' : 'http://www.ncbi.nlm.nih.gov/clinvar/'
+      'ClinVarVariant' : 'http://www.ncbi.nlm.nih.gov/clinvar/variation/'
+      'Coriell' : 'https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref='
+      'CoriellCollection' : 'https://catalog.coriell.org/1/'
+      'CoriellFamily' : 'https://catalog.coriell.org/0/Sections/BrowseCatalog/FamilyTypeSubDetail.aspx?fam='
+      'CoriellIndividual' : 'https://catalog.coriell.org/Search?q='
+      'COSMIC' : 'http://cancer.sanger.ac.uk/cosmic/mutation/overview?id='
+      'dbSNP' : 'http://www.ncbi.nlm.nih.gov/SNP/'
+      'dbSNPIndividual' : 'http://www.ncbi.nlm.nih.gov/SNP/snp_ind.cgi?ind_id='  #FIXME
+      'dbVar' : 'http://www.ncbi.nlm.nih.gov/dbvar/'
+      'EOM' : 'http://purl.obolibrary.org/obo/EOM_'
+      'GeneReviews' : 'http://www.ncbi.nlm.nih.gov/books/'
+      'HPO' : 'http://human-phenotype-ontology.org/'  #to be used for persons, though they don't resolve with this
+      'JAX' : 'http://jaxmice.jax.org/strain/'
+      'KEGG-ds' : 'http://purl.obolibrary.org/KEGG-ds_'
+      'KEGG-path' : 'http://www.kegg.jp/dbget-bin/www_bget?path:'
+      'KEGG-hsa' : 'http://www.kegg.jp/dbget-bin/www_bget?hsa:'
+      'KEGG-ko' : 'http://www.kegg.jp/dbget-bin/www_bget?ko:'
+      'MedGen' : 'http://www.ncbi.nlm.nih.gov/medgen/'
+      'NCBIGenome' : 'http://www.ncbi.nlm.nih.gov/genome/'
+      'NCBIAssembly': 'http://www.ncbi.nlm.nih.gov/assembly/'
+      'PANTHER' : 'http://www.pantherdb.org/panther/family.do?clsAccession='   # protein/orthologous families
+      'REACT' : 'http://www.reactome.org/PathwayBrowser/#REACT_'
+      'UCSC' : 'ftp://hgdownload.cse.ucsc.edu/goldenPath/'
+      'HGMD' : 'http://identifiers.org/hgmd/'
+
+      # genes
+      'BIOGRID' : 'http://thebiogrid.org/'
+      'dictyBase' : 'http://dictybase.org/gene/'
+      'EcoGene' : 'http://ecogene.org/gene/'
+      'ENSEMBL' : 'http://identifiers.org/ensembl/'
+      'FlyBase' : 'http://identifiers.org/FB:'
+      'GenBank' : 'http://www.ncbi.nlm.nih.gov/nuccore/'
+      'HGNC' : 'http://identifiers.org/hgnc/HGNC:'
+      'HPRD' : 'http://www.hprd.org/protein/'
+      'IMPC' : 'http://www.mousephenotype.org/data/genes/'  #FIXME
+      'MGI': 'http://www.informatics.jax.org/accession/MGI:'
+      'miRBase' : 'http://identifiers.org/mirbase/'
+      'NCBIGene' : 'http://www.ncbi.nlm.nih.gov/gene/'
+      'PomBase' : 'http://identifiers.org/PomBase:'
+      'RefSeq' : 'http://www.ncbi.nlm.nih.gov/refseq/?term='
+      'RGD' : 'http://rgd.mcw.edu/rgdweb/report/gene/main.html?id='
+      'SGD' : 'http://identifiers.org/SGD:'
+      'TAIR' : 'http://identifiers.org/TAIR:'
+      'WormBase' : 'http://identifiers.org/wormbase/'
+      'Xenbase' : 'http://identifiers.org/xenbase/'
+      'ZFIN' : 'http://zfin.org/'
+
+      # proteins
+      'EC' : 'http://identifiers.org/ec-code/'
+      'NCBIProtein' : 'http://www.ncbi.nlm.nih.gov/protein/'
+      'PDB' : 'http://identifiers.org/PDB:'
+      'SwissProt' : 'http://identifiers.org/SwissProt:'
+      'TrEMBL' : 'http://www.uniprot.org/uniprot/'
+      'UniProtKB' : 'http://identifiers.org/uniprot/'
+
+      #chemicals
+      'CID' : 'http://pubchem.ncbi.nlm.nih.gov/compound/'
+      'DrugBank' : 'http://www.drugbank.ca/drugs/'
+
+ontologies:
+  - url: http://purl.obolibrary.org/obo/upheno/monarch.owl
+    reasonerConfiguration:
+      factory: org.semanticweb.elk.owlapi.ElkReasonerFactory
+      addDirectInferredEdges: true
+      addInferredEquivalences: true
+      removeUnsatisfiableClasses: true
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/mgi_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/panther_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/clinvar_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/ncbigene_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/biogrid_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/zfin_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/ctd_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/hpoa_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/omim_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/coriell_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/hgnc_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/kegg_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/impc_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/ucscbands_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/monochrom.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/eom_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/genereviews_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/ensembl_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/orphanet_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/animalqtldb_test.ttl
+
+  - url: http://biohackathon.org/resource/faldo.ttl
+  - url: http://evidenceontology.googlecode.com/svn/trunk/eco.owl
+  - url: http://purl.obolibrary.org/obo/iao.owl
+  - url: https://raw.githubusercontent.com/monarch-initiative/GENO-ontology/develop/src/ontology/geno.owl
+  - url: http://purl.obolibrary.org/obo/ero.owl
+  - url: http://purl.obolibrary.org/obo/pw.owl
+  - url: https://raw.githubusercontent.com/jamesmalone/OBAN/master/ontology/oban_core.ttl
+  # clo.owl is missing and import
+  #- url: http://purl.obolibrary.org/obo/clo.owl
+  - url: http://purl.obolibrary.org/obo/pco.owl
+  - url: http://purl.obolibrary.org/obo/xco.owl
+  - url: http://xmlns.com/foaf/spec/index.rdf
+  - url: http://purl.org/dc/elements/1.1/
+  - url: http://xmlns.com/foaf/0.1/
+
+categories:
+    http://purl.obolibrary.org/obo/CL_0000000 : cell
+    http://purl.obolibrary.org/obo/UBERON_0001062 : anatomical entity
+    #http://purl.obolibrary.org/obo/UBERON_0000468 : multi-cellular organism
+    http://purl.obolibrary.org/obo/PATO_0000001 : quality
+    #http://purl.obolibrary.org/obo/GO_0005623 : cell
+    http://purl.obolibrary.org/obo/DOID_4 : disease
+    #http://purl.obolibrary.org/obo/PATO_0000003 : assay
+    #http://purl.obolibrary.org/obo/PATO_0000006 : process
+    #http://purl.obolibrary.org/obo/PATO_0000011 : age
+    #http://purl.obolibrary.org/obo/CHEBI_23367 : molecular entity
+    http://purl.obolibrary.org/obo/CHEBI_23888 : drug
+    http://purl.obolibrary.org/obo/UPHENO_0001001 : Phenotype
+    #http://purl.obolibrary.org/obo/GO_0008150 : biological process
+    #http://purl.obolibrary.org/obo/GO_0005575 : cellular component
+    http://purl.obolibrary.org/obo/SO_0000704 : gene
+    http://purl.obolibrary.org/obo/GENO_0000536 : genotype
+    http://purl.obolibrary.org/obo/GENO_0000504 : reagent targeted gene
+    #http://purl.obolibrary.org/obo/GENO_0000000 : intrinsic genotype
+    #http://purl.obolibrary.org/obo/GENO_0000524 : extrinsic genotype
+    #http://purl.obolibrary.org/obo/GENO_0000525 : effective genotype
+    http://purl.obolibrary.org/obo/GENO_0000002 : variant locus
+    http://purl.obolibrary.org/obo/SO_0001059 : sequence alteration
+    http://purl.obolibrary.org/obo/SO_0000110 : sequence feature
+    http://purl.obolibrary.org/obo/ECO_0000000 : evidence
+    http://purl.obolibrary.org/obo/PW_0000001 : pathway
+
+mappedProperties:
+  - name: label
+    properties:
+    - http://www.w3.org/2000/01/rdf-schema#label
+  - name: synonym
+    properties:
+    - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    - http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym
+    - http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym
+    - http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym
+    - http://purl.obolibrary.org/obo/go#systematic_synonym
+    - http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#synonym
+  - name: acronym
+    properties:
+    - http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#acronym
+  - name: abbreviation
+    properties:
+    - http://ontology.neuinfo.org/NIF/Backend/OBO_annotation_properties.owl#abbrev
+  - name: definition
+    properties:
+    - http://purl.obolibrary.org/obo/IAO_0000115
+    - http://www.w3.org/2004/02/skos/core#definition

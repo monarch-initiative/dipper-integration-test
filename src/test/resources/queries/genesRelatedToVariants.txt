@@ -1,0 +1,35 @@
+START chromosomeClass = node:node_auto_index(iri='SO_0000340')
+MATCH (chromosomeClass)<-[:type]-(chromosome)
+WITH chromosome
+MATCH (chromosome)<-[:reference]-(feature_start_pos)<-[:begin|location*1..2]-(variant:`sequence feature`)-[:end|location*1..2]->(feature_end_pos)-[:reference]->(chromosome),
+ (chromosome)<-[:reference]-(feature2_start_pos)<-[:begin|location*1..2]-(variant2:`sequence feature`)-[:end|location*1..2]->(feature2_end_pos)-[:reference]->(chromosome)
+ // WHERE ID(variant) < ID(variant2)
+//   AND  
+//   NOT (variant)-[:type]->()-[:subClassOf*0..]->(chromosomeClass) AND
+//   NOT (variant2)-[:type]->()-[:subClassOf*0..]->(chromosomeClass)
+WITH variant, variant2, feature_start_pos.`http://biohackathon.org/resource/faldo#position` as feature_start,
+feature_end_pos.`http://biohackathon.org/resource/faldo#position` as feature_end,
+feature2_start_pos.`http://biohackathon.org/resource/faldo#position` as feature2_start,
+feature2_end_pos.`http://biohackathon.org/resource/faldo#position` as feature2_end
+MATCH ()
+WHERE NOT((feature_end < feature2_start) OR (feature2_end < feature_start)) 
+RETURN DISTINCT variant.uri, variant2.uri, feature_start, feature_end, feature2_start, feature2_end
+
+
+//!((a.max < b.min) || (b.max < a.min))
+
+//, variant,
+//feature_start_pos.`http://biohackathon.org/resource/faldo#position` as variant_start,
+//feature_end_pos.`http://biohackathon.org/resource/faldo#position` as variant_end
+//MATCH (chromosome)<-[:reference]-(gene_start_pos)<-[:begin|location*1..2]-(gene:`gene`)-[:end|location*1..2]->(gene_end_pos)-[:reference]->(chromosome)
+//RETURN gene, variant
+
+
+
+
+// RETURN chromosome, variant, variant_start, variant_end
+
+
+
+
+

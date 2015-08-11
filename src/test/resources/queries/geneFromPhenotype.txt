@@ -1,0 +1,15 @@
+START object = node:node_auto_index(iri={phenotype_id})
+MATCH (gene:gene)<-[:GENO:0000410!*0..1]-(feature)-[:RO:0002200|RO:0002610|RO:0002326!]->(object:Phenotype)
+RETURN gene
+UNION
+START object = node:node_auto_index(iri={phenotype_id})
+MATCH (gene:gene)<-[:GENO:0000410!*0..1]-(feature)-[:RO:0002200|RO:0002610|RO:0002326!*2..]->(object:Phenotype)
+RETURN gene
+UNION
+START object = node:node_auto_index(iri={phenotype_id})
+MATCH (gene:gene)<-[:GENO:0000410!*0..1]-(feature)<-[:BFO:0000051!*]-(genotype)-[:RO:0002200|RO:0002610|RO:0002326!*]->(object:Phenotype)
+RETURN gene
+UNION
+START object = node:node_auto_index(iri={phenotype_id})
+MATCH path = (gene)<-[:GENO:0000410!*0..1]-(feature)<-[:BFO:0000051!*]-(genotype)<-[:GENO:0000222]-(person)-[:RO:0002200|RO:0002610|RO:0002326!*]->(object:Phenotype)
+RETURN gene
