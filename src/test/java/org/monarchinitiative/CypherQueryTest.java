@@ -236,6 +236,21 @@ public class CypherQueryTest {
   }
   
   @Test
+  public void variantsFromGene_zfin_test() throws Exception {
+    String query = getQuery(Thread.currentThread().getStackTrace()[1].getMethodName());
+    long id = graph.getNode(curieUtil.getIri("ZFIN:ZDB-GENE-980526-166").get()).get();
+    params.put("gene_id", graph.getNodeProperty(id, CommonProperties.IRI, String.class).get());
+    Result result = cypherUtil.execute(query, params);
+    Set<String> variants = new HashSet<>();
+    while (result.hasNext()) {
+      Node variant = (Node) result.next().get("subject");
+      variants.add(getCurie(variant).get());
+    }
+    System.out.println(variants);
+    assertThat(variants, hasItem("ZFIN:ZDB-ALT-980413-636"));
+  }
+  
+  @Test
   @Ignore
   public void diseaseFromPhenotype_test() throws Exception {
     String query = getQuery(Thread.currentThread().getStackTrace()[1].getMethodName());

@@ -1,0 +1,7 @@
+START gene = node:node_auto_index(iri={gene_id})
+MATCH path = (subject)-[:RO:0001000]->(anonPerson)-[:GENO:0000222]->(genotype)-[:BFO:0000051!*]->(variant)-[:owl:sameAs*0..1]-(variantEquivalent)-[:GENO:0000410!*0..1]->(geneEq)-[:equivalentClass*]-(gene:gene)
+RETURN path,
+subject, gene,
+'model' AS subject_category,
+'gene' AS object_category,
+'indirect' AS qualifier

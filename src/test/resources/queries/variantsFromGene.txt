@@ -1,0 +1,8 @@
+START gene = node:node_auto_index(iri={gene_id})
+MATCH path = (subject)<-[optional:GENO:0000382*0..1]-()-[relation:GENO:0000410!]->(gene:gene)
+WHERE (((subject:`sequence feature` AND NOT subject:gene) OR subject:`variant locus`) AND NOT subject:anonymous) OR subject:`reagent targeted gene`
+RETURN path,
+subject, gene, relation,
+'variant' AS subject_category,
+'gene' AS object_category,
+'direct' AS qualifier

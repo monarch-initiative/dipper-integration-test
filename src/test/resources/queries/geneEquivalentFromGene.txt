@@ -1,0 +1,5 @@
+START gene = node:node_auto_index(iri={gene_id})
+MATCH path = (geneEq)-[:equivalentClass*]-(gene:gene)
+RETURN path,
+geneEq,
+gene
