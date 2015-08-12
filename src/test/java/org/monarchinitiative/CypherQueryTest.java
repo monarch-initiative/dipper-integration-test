@@ -1,7 +1,7 @@
 package org.monarchinitiative;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.*;
 import io.scigraph.frames.CommonProperties;
 import io.scigraph.frames.Concept;
 import io.scigraph.internal.CypherUtil;
@@ -191,6 +191,50 @@ public class CypherQueryTest {
     assertThat(genes, containsInAnyOrder("ZFIN:ZDB-GENE-980526-41", "ZFIN:ZDB-GENE-980526-166", "ZFIN:ZDB-GENE-990415-181"));
   }
 
+  @Test
+  public void modelFromGene_test() throws Exception {
+    String query = getQuery(Thread.currentThread().getStackTrace()[1].getMethodName());
+    long id = graph.getNode(curieUtil.getIri("OMIM:157140").get()).get();
+    params.put("gene_id", graph.getNodeProperty(id, CommonProperties.IRI, String.class).get());
+    Result result = cypherUtil.execute(query, params);
+    Set<String> genes = new HashSet<>();
+    while (result.hasNext()) {
+      Node gene = (Node) result.next().get("subject");
+      genes.add(getCurie(gene).get());
+    }
+    assertThat(genes, containsInAnyOrder("Coriell:ND02380"));
+  }
+  
+  @Test
+  public void modelFromGene_with_equivalent_test() throws Exception {
+    String query = getQuery(Thread.currentThread().getStackTrace()[1].getMethodName());
+    long id = graph.getNode(curieUtil.getIri("NCBIGene:4137").get()).get();
+    params.put("gene_id", graph.getNodeProperty(id, CommonProperties.IRI, String.class).get());
+    Result result = cypherUtil.execute(query, params);
+    Set<String> genes = new HashSet<>();
+    while (result.hasNext()) {
+      Node gene = (Node) result.next().get("subject");
+      genes.add(getCurie(gene).get());
+    }
+    assertThat(genes, containsInAnyOrder("Coriell:ND02380"));
+  }
+  
+  @Test
+  public void geneEquivalentFromGene_test() throws Exception {
+    String query = getQuery(Thread.currentThread().getStackTrace()[1].getMethodName());
+    long id = graph.getNode(curieUtil.getIri("NCBIGene:4137").get()).get();
+    params.put("gene_id", graph.getNodeProperty(id, CommonProperties.IRI, String.class).get());
+    Result result = cypherUtil.execute(query, params);
+    Set<String> genes = new HashSet<>();
+    while (result.hasNext()) {
+      Node gene = (Node) result.next().get("geneEq");
+      Node genee = (Node) result.next().get("gene");
+      genes.add(getCurie(gene).get());
+      genes.add(getCurie(genee).get());
+    }
+    assertThat(genes, hasItem("OMIM:157140"));
+  }
+  
   @Test
   @Ignore
   public void diseaseFromPhenotype_test() throws Exception {

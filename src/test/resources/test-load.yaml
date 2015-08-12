@@ -17,6 +17,7 @@ graphConfiguration:
       'MonarchArchive': 'http://archive.monarchinitiative.org/ttl/'
       'dc': 'http://purl.org/dc/elements/1.1/'
       'foaf': 'http://xmlns.com/foaf/0.1/'
+      'owl': 'http://www.w3.org/2002/07/owl#'
 
       # ontologies
       'BFO': 'http://purl.obolibrary.org/obo/BFO_'
