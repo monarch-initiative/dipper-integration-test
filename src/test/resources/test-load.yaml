@@ -8,7 +8,7 @@ graphConfiguration:
       - label
     exactNodeProperties:
       - label
-      
+
     curies:
       # base
       '': 'http://www.monarchinitiative.org/'
@@ -17,7 +17,6 @@ graphConfiguration:
       'MonarchArchive': 'http://archive.monarchinitiative.org/ttl/'
       'dc': 'http://purl.org/dc/elements/1.1/'
       'foaf': 'http://xmlns.com/foaf/0.1/'
-      'owl': 'http://www.w3.org/2002/07/owl#'
 
       # ontologies
       'BFO': 'http://purl.obolibrary.org/obo/BFO_'
@@ -170,6 +169,7 @@ ontologies:
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/ensembl_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/orphanet_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/animalqtldb_test.ttl
+  - url: owl/140_go_taxon.owl
 
   - url: http://biohackathon.org/resource/faldo.ttl
   - url: http://evidenceontology.googlecode.com/svn/trunk/eco.owl

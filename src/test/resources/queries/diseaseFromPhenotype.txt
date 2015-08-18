@@ -1,4 +1,4 @@
 PROFILE 
 START phenotype = node:node_auto_index(iri={phenotype_id})
-MATCH path = (diseaseParents:disease)<-[:subClassOf*]-(disease:disease)-[RO_0002200]->(actualPhenotype:Phenotype)-[subClassOf*0..]->(phenotype:Phenotype)
+MATCH path = (diseaseParents:disease)<-[:subClassOf*]-(disease:disease)-[RO:0002200]->(actualPhenotype:Phenotype)-[subClassOf*0..]->(phenotype:Phenotype)
 RETURN path, disease
