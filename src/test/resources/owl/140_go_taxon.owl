@@ -27,7 +27,7 @@ Class: :hair
   SubClassOf: only_in_taxon: some :mammal
 Class: :whisker SubClassOf: :hair
   SubClassOf: never_in_taxon: some :human
-Class: :tip_of_whisker SubClassOf: part_of: some :hair
+Class: :tip_of_whisker SubClassOf: part_of: some :whisker
 Class: :hair_root SubClassOf: part_of: some :hair
 
 ## EXPECTED:
