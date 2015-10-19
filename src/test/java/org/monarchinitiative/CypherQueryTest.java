@@ -324,18 +324,18 @@ public class CypherQueryTest {
     List<TaxonPredicate> taxonPredicates = new ArrayList<TaxonPredicate>();
     taxonPredicates.add(new TaxonPredicate("whisker", "human", true));
     taxonPredicates.add(new TaxonPredicate("whisker", "mammal", false));
-    taxonPredicates.add(new TaxonPredicate("whisker", "vertebrate", false));
+    taxonPredicates.add(new TaxonPredicate("whisker", "vertebrate", true));
     taxonPredicates.add(new TaxonPredicate("whisker", "chicken", true));
     taxonPredicates.add(new TaxonPredicate("tip_of_whisker", "human", true));
     taxonPredicates.add(new TaxonPredicate("tip_of_whisker", "mammal", false));
-    taxonPredicates.add(new TaxonPredicate("tip_of_whisker", "mouse", true));
+    taxonPredicates.add(new TaxonPredicate("tip_of_whisker", "mouse", false));
     taxonPredicates.add(new TaxonPredicate("hair", "chicken", true));
     taxonPredicates.add(new TaxonPredicate("hair_root", "chicken", true));
     taxonPredicates.add(new TaxonPredicate("hair", "bird", true));
     taxonPredicates.add(new TaxonPredicate("hair_root", "bird", true));
     taxonPredicates.add(new TaxonPredicate("whisker", "human", true));
-    taxonPredicates.add(new TaxonPredicate("hair", "vertebrate", false));
-    taxonPredicates.add(new TaxonPredicate("hair_root", "vertebrate", false));
+    taxonPredicates.add(new TaxonPredicate("hair", "vertebrate", true));
+    taxonPredicates.add(new TaxonPredicate("hair_root", "vertebrate", true));
     for (TaxonPredicate tp : taxonPredicates) {
       boolean result = taxonGoViolation_runner(query, tp.taxonomyClass, tp.ontologyClass, relationSet);
       assertThat("Result does not match for taxonomy " + tp.taxonomyClass + " and ontology " + tp.ontologyClass, result, is(tp.expectedResult));

@@ -1,6 +1,6 @@
 START start = node:node_auto_index(iri={taxonomy_class}),
 end = node:node_auto_index(iri={ontology_class})
-OPTIONAL MATCH path = (start)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002160`*1]->(subclass)-[:subClassOf*0..]->(end)
+OPTIONAL MATCH path = (start)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002160`*1]->(subclass)<-[:subClassOf*0..]-(end)
 WITH start, end, path
 LIMIT 1
 OPTIONAL MATCH path2 = (start)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002161`*1]->()<-[:subClassOf*0..]-(end)

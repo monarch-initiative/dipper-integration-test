@@ -35,7 +35,7 @@ Class: :hair_root SubClassOf: part_of: some :hair
 ##
 ## violation(whisker, human) = true
 ## violation(whisker, mammal) = false
-## violation(whisker, vertebrate) = false
+## violation(whisker, vertebrate) = true
 ## violation(whisker, chicken) = true
 ## violation(tip_of_whisker, human) = true
 ## violation(tip_of_whisker, mammal) = false
@@ -44,5 +44,5 @@ Class: :hair_root SubClassOf: part_of: some :hair
 ## violation(hair_root, chicken) = true
 ## violation(hair, bird) = true
 ## violation(hair_root, bird) = true
-## violation(hair, vertebrate) = false
-## violation(hair_root, vertebrate) = false
+## violation(hair, vertebrate) = true
+## violation(hair_root, vertebrate) = true
