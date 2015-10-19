@@ -1,9 +1,9 @@
-START start = node:node_auto_index(iri={taxonomy_class}),
-end = node:node_auto_index(iri={ontology_class})
-OPTIONAL MATCH path = (start)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002160`*1]->(subclass)<-[:subClassOf*0..]-(end)
-WITH start, end, path
+START class = node:node_auto_index(iri={ontology_class}),
+taxonomy = node:node_auto_index(iri={taxonomy_class})
+OPTIONAL MATCH path = (class)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002160`*1]->(subclass)<-[:subClassOf*0..]-(taxonomy)
+WITH class, taxonomy, path
 LIMIT 1
-OPTIONAL MATCH path2 = (start)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002161`*1]->()<-[:subClassOf*0..]-(end)
+OPTIONAL MATCH path2 = (class)-[:${relation_set}]->()-[:`http://purl.obolibrary.org/obo/RO_0002161`*1]->()<-[:subClassOf*0..]-(taxonomy)
 WITH path, path2
 LIMIT 1
 RETURN (path IS NULL) OR (path2 IS NOT NULL) as result, path, path2;

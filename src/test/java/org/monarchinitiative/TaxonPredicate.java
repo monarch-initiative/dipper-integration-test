@@ -6,9 +6,9 @@ public class TaxonPredicate {
   public String ontologyClass;
   public boolean expectedResult;
 
-  public TaxonPredicate(String taxonomyClass, String ontologyClass, boolean expectedResult) {
-    this.taxonomyClass = taxonomyClass;
+  public TaxonPredicate(String ontologyClass, String taxonomyClass, boolean expectedResult) {
     this.ontologyClass = ontologyClass;
+    this.taxonomyClass = taxonomyClass;
     this.expectedResult = expectedResult;
   }
 
