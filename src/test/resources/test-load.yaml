@@ -154,8 +154,7 @@ ontologies:
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/clinvar_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/ncbigene_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/biogrid_test.ttl
-  #- url: http://nif-crawler.neuinfo.org/monarch/ttl/zfin_test.ttl
-  - url: /home/jnguyenxuan/Downloads/zfin_test.ttl
+  - url: http://nif-crawler.neuinfo.org/monarch/ttl/zfin_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/ctd_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/hpoa_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/omim_test.ttl
