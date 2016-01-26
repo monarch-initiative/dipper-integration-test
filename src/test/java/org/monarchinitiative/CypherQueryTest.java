@@ -159,6 +159,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("gene");
       genes.add(getCurie(gene).get());
     }
+    // Note: if the cliquemerge postprocessor is not used, add the equivalent KEGG-hsa:860
     assertThat("Exact genes are returned through feature.", genes, containsInAnyOrder("NCBIGene:860"));
   }
 
@@ -190,6 +191,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("gene");
       genes.add(getCurie(gene).get());
     }
+    // Note: if the cliquemerge postprocessor is not used, replace the last gene with its equivalent ZFIN:ZDB-GENE-990415-181
     assertThat(genes, containsInAnyOrder("ZFIN:ZDB-GENE-980526-41", "ZFIN:ZDB-GENE-980526-166", "NCBIGene:30292"));
   }
 
