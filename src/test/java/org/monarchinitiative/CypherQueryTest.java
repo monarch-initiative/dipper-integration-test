@@ -159,7 +159,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("gene");
       genes.add(getCurie(gene).get());
     }
-    assertThat("Exact genes are returned through feature.", genes, containsInAnyOrder("KEGG-hsa:860", "NCBIGene:860"));
+    assertThat("Exact genes are returned through feature.", genes, containsInAnyOrder("NCBIGene:860"));
   }
 
   @Test
@@ -190,7 +190,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("gene");
       genes.add(getCurie(gene).get());
     }
-    assertThat(genes, containsInAnyOrder("ZFIN:ZDB-GENE-980526-41", "ZFIN:ZDB-GENE-980526-166", "ZFIN:ZDB-GENE-990415-181"));
+    assertThat(genes, containsInAnyOrder("ZFIN:ZDB-GENE-980526-41", "ZFIN:ZDB-GENE-980526-166", "NCBIGene:30292"));
   }
 
   @Test
