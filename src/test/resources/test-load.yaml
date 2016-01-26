@@ -2,7 +2,7 @@ graphConfiguration:
     location: /var/scigraph-services/graph
     neo4jConfig:
       dump_configuration : true
-      dbms.pagecache.memory : 2G
+      dbms.pagecache.memory : 5G
 
     indexedNodeProperties:
       - label
@@ -154,7 +154,8 @@ ontologies:
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/clinvar_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/ncbigene_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/biogrid_test.ttl
-  - url: http://nif-crawler.neuinfo.org/monarch/ttl/zfin_test.ttl
+  #- url: http://nif-crawler.neuinfo.org/monarch/ttl/zfin_test.ttl
+  - url: /home/jnguyenxuan/Downloads/zfin_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/ctd_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/hpoa_test.ttl
   - url: http://nif-crawler.neuinfo.org/monarch/ttl/omim_test.ttl
@@ -192,6 +193,8 @@ categories:
     #http://purl.obolibrary.org/obo/UBERON_0000468 : multi-cellular organism
     http://purl.obolibrary.org/obo/PATO_0000001 : quality
     #http://purl.obolibrary.org/obo/GO_0005623 : cell
+    http://purl.obolibrary.org/obo/NCBITaxon_131567 : organism
+    http://purl.obolibrary.org/obo/CLO_0000031 : cell line
     http://purl.obolibrary.org/obo/DOID_4 : disease
     #http://purl.obolibrary.org/obo/PATO_0000003 : assay
     #http://purl.obolibrary.org/obo/PATO_0000006 : process
@@ -212,6 +215,9 @@ categories:
     http://purl.obolibrary.org/obo/SO_0000110 : sequence feature
     http://purl.obolibrary.org/obo/ECO_0000000 : evidence
     http://purl.obolibrary.org/obo/PW_0000001 : pathway
+    http://purl.obolibrary.org/obo/IAO_0000310 : publication
+    http://xmlns.com/foaf/0.1/Person : person
+    http://purl.org/oban/association : association
 
 mappedProperties:
   - name: label
@@ -235,3 +241,22 @@ mappedProperties:
     properties:
     - http://purl.obolibrary.org/obo/IAO_0000115
     - http://www.w3.org/2004/02/skos/core#definition
+
+cliqueConfiguration:
+  relationships:
+    - sameAs
+    - equivalentClass
+  leaderAnnotation: http://www.monarchinitiative.org/MONARCH_cliqueLeader
+  leaderPriority:
+    - http://www.ncbi.nlm.nih.gov/gene/
+    - http://www.ncbi.nlm.nih.gov/pubmed/
+    - http://purl.obolibrary.org/obo/NCBITaxon_
+    - http://identifiers.org/ensembl/
+    - http://purl.obolibrary.org/obo/OMIM_
+    - http://purl.obolibrary.org/obo/DOID_
+    - http://purl.obolibrary.org/obo/Orphanet_
+    - http://purl.obolibrary.org/obo/HP_
+    - http://purl.obolibrary.org/obo/MP_
+    - http://purl.obolibrary.org/obo/ZP_
+  leaderForbiddenLabels:
+    - anonymous
