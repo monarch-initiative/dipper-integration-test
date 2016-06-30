@@ -143,7 +143,8 @@ graphConfiguration:
       'DrugBank' : 'http://www.drugbank.ca/drugs/'
 
 ontologies:
-  - url: http://purl.obolibrary.org/obo/upheno/monarch.owl
+  #- url: http://purl.obolibrary.org/obo/upheno/monarch.owl
+  - url: http://data.monarchinitiative.org/owl/monarch-merged.owl
     reasonerConfiguration:
       factory: org.semanticweb.elk.owlapi.ElkReasonerFactory
       addDirectInferredEdges: true
@@ -174,7 +175,7 @@ ontologies:
   - url: owl/140_go_taxon.owl
 
   - url: http://biohackathon.org/resource/faldo.ttl
-  - url: http://evidenceontology.googlecode.com/svn/trunk/eco.owl
+  - url: http://purl.obolibrary.org/obo/eco.owl
   - url: http://purl.obolibrary.org/obo/iao.owl
   - url: https://raw.githubusercontent.com/monarch-initiative/GENO-ontology/develop/src/ontology/geno.owl
   - url: http://purl.obolibrary.org/obo/ero.owl

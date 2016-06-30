@@ -160,6 +160,7 @@ public class CypherQueryTest {
       genes.add(getCurie(gene).get());
     }
     // Note: if the cliquemerge postprocessor is not used, add the equivalent KEGG-hsa:860
+    System.out.println(genes);
     assertThat("Exact genes are returned through feature.", genes, containsInAnyOrder("NCBIGene:860"));
   }
 
@@ -192,6 +193,7 @@ public class CypherQueryTest {
       genes.add(getCurie(gene).get());
     }
     // Note: if the cliquemerge postprocessor is not used, replace the last gene with its equivalent ZFIN:ZDB-GENE-990415-181
+    System.out.println(genes);
     assertThat(genes, containsInAnyOrder("ZFIN:ZDB-GENE-980526-41", "ZFIN:ZDB-GENE-980526-166", "NCBIGene:30292"));
   }
 
@@ -206,6 +208,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("subject");
       genes.add(getCurie(gene).get());
     }
+    System.out.println(genes);
     assertThat(genes, containsInAnyOrder("Coriell:ND02380"));
   }
 
@@ -220,6 +223,7 @@ public class CypherQueryTest {
       Node gene = (Node) result.next().get("subject");
       genes.add(getCurie(gene).get());
     }
+    System.out.println(genes);
     assertThat(genes, containsInAnyOrder("Coriell:ND02380"));
   }
 
@@ -277,9 +281,9 @@ public class CypherQueryTest {
   public void labelsAreMapped() {
     long id = graph.getNode(curieUtil.getIri("ZFIN:ZDB-GENE-990415-75").get()).get();
     Node node = graphDb.getNodeById(id);
-    for (String key : node.getPropertyKeys()) {
-      System.out.println(key + ": " + GraphUtil.getProperties(node, key, String.class));
-    }
+//    for (String key : node.getPropertyKeys()) {
+//      System.out.println(key + ": " + GraphUtil.getProperties(node, key, String.class));
+//    }
   }
 
   @Test
@@ -289,9 +293,9 @@ public class CypherQueryTest {
     // params.put("phenotype_id", graph.getNodeProperty(id, CommonProperties.FRAGMENT,
     // String.class).get());
     Result result = cypherUtil.execute(query, params);
-    while (result.hasNext()) {
-      System.out.println(result.next());
-    }
+//    while (result.hasNext()) {
+//      System.out.println(result.next());
+//    }
   }
 
   @Test
@@ -302,7 +306,7 @@ public class CypherQueryTest {
             + " RETURN variant.uri, type.uri, chromosomeClass.uri, path";
 
     Result result = cypherUtil.execute(query, params);
-    System.out.println(result.resultAsString());
+    //System.out.println(result.resultAsString());
     /*
      * while (result.hasNext()) { System.out.println(result.next()); }
      */
@@ -316,7 +320,7 @@ public class CypherQueryTest {
             + "RETURN path ";
 
     Result result = cypherUtil.execute(query, params);
-    System.out.println(result.resultAsString());
+    //System.out.println(result.resultAsString());
   }
 
   @Test
@@ -348,20 +352,20 @@ public class CypherQueryTest {
     Multimap<String, Object> params = HashMultimap.create();
     long taxonomyId = graph.getNode("http://scigraph.io/" + taxonomyClass).get();
     long ontologyId = graph.getNode("http://scigraph.io/" + ontologyClass).get();
-    System.out.println("taxonomyId " + taxonomyId);
-    System.out.println("ontologyId " + ontologyId);
+//    System.out.println("taxonomyId " + taxonomyId);
+//    System.out.println("ontologyId " + ontologyId);
     params.put("taxonomy_class", graph.getNodeProperty(taxonomyId, CommonProperties.IRI, String.class).get());
     params.put("ontology_class", graph.getNodeProperty(ontologyId, CommonProperties.IRI, String.class).get());
     params.put("relation_set", relationSet);
     Result result = cypherUtil.execute(query, params);
     boolean returnVal = false;
-    System.out.println(taxonomyClass + " - " + ontologyClass);
+//    System.out.println(taxonomyClass + " - " + ontologyClass);
     while (result.hasNext()) {
       Map<String, Object> map = result.next();
       returnVal = (boolean) map.get("result");
-      System.out.println(map.get("result"));
-      System.out.println("path " + map.get("path"));
-      System.out.println("path2 " + map.get("path2"));
+//      System.out.println(map.get("result"));
+//      System.out.println("path " + map.get("path"));
+//      System.out.println("path2 " + map.get("path2"));
     }
     return returnVal;
   }
