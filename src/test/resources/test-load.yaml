@@ -143,8 +143,8 @@ graphConfiguration:
       'DrugBank' : 'http://www.drugbank.ca/drugs/'
 
 ontologies:
-  #- url: http://purl.obolibrary.org/obo/upheno/monarch.owl
-  - url: http://data.monarchinitiative.org/owl/monarch-merged.owl
+  - url: http://purl.obolibrary.org/obo/upheno/monarch.owl
+  #- url: http://data.monarchinitiative.org/owl/monarch-merged.owl
     reasonerConfiguration:
       factory: org.semanticweb.elk.owlapi.ElkReasonerFactory
       addDirectInferredEdges: true
@@ -248,7 +248,7 @@ cliqueConfiguration:
   relationships:
     - sameAs
     - equivalentClass
-  leaderAnnotation: http://www.monarchinitiative.org/MONARCH_cliqueLeader
+  leaderAnnotation: https://monarchinitiative.org/MONARCH_cliqueLeader
   leaderPriority:
     - http://www.ncbi.nlm.nih.gov/gene/
     - http://www.ncbi.nlm.nih.gov/pubmed/
