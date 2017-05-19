@@ -1,18 +1,9 @@
 package org.monarchinitiative;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import io.scigraph.frames.CommonProperties;
-import io.scigraph.frames.Concept;
-import io.scigraph.internal.CypherUtil;
-import io.scigraph.neo4j.Graph;
-import io.scigraph.neo4j.GraphTransactionalImpl;
-import io.scigraph.neo4j.GraphUtil;
-import io.scigraph.neo4j.Neo4jModule;
-import io.scigraph.owlapi.OwlRelationships;
-import io.scigraph.owlapi.curies.CurieUtil;
-import io.scigraph.owlapi.loader.BatchOwlLoader;
-import io.scigraph.owlapi.loader.OwlLoadConfiguration;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.is;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.junit.After;
@@ -38,17 +30,27 @@ import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Result;
 import org.neo4j.graphdb.Transaction;
+import org.prefixcommons.CurieUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.base.Charsets;
-import com.google.common.base.Optional;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.io.Resources;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+import io.scigraph.frames.CommonProperties;
+import io.scigraph.frames.Concept;
+import io.scigraph.internal.CypherUtil;
+import io.scigraph.neo4j.Graph;
+import io.scigraph.neo4j.GraphTransactionalImpl;
+import io.scigraph.neo4j.Neo4jModule;
+import io.scigraph.owlapi.OwlRelationships;
+import io.scigraph.owlapi.loader.BatchOwlLoader;
+import io.scigraph.owlapi.loader.OwlLoadConfiguration;
 
 public class CypherQueryTest {
 
